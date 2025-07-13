@@ -1,0 +1,295 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+  height: 100vh;
+  padding: 0;background: rgb(36,39,62);
+background: linear-gradient(90deg, rgba(36,39,62,1) 0%, rgba(29,142,253,0.9243346997001926) 88%, rgba(135,184,247,0.8038865204284839) 100%);
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:900;
+  font-style: normal;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(19, 100, 7);
+}
+.container {
+  position: relative;
+  display: flex;
+  animation: container 1.5s 1 linear;
+  gap:30px;
+  align-items: center;
+  flex-direction: column;
+}
+/* a {
+  z-index: 11;
+  text-transform: capitalize;
+  background-color: rgb(255, 255, 255);
+  padding: 10px 15px;
+  font-size: 23px;
+  border: none;
+  position: relative;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.5s;
+  outline: none;
+  color: white;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+a {
+  text-transform: capitalize;
+  background-color: rgb(255, 255, 255);
+  padding: 10px 15px;
+  font-size: 23px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.5s;
+  color: white;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+}
+a span{
+  margin-left: 5px;
+}
+a:hover {
+  transform: scale(1.2);
+}
+/* 
+a::after {
+
+  content: '';
+  position: absolute;
+  width: 150%;
+  z-index: -10;
+  height: 150%;
+  animation: round infinite 4s linear;
+  background-color: #0866ff;
+  
+}
+a::before {
+
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  background-color: #ffffff;
+
+}
+@keyframes round{
+
+  100%{
+    
+    transform: rotate(360deg);
+  }
+}  */
+
+
+a::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+/* glow */
+a:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #0000, #25d366,
+    #00FFD5, #002BFF, #db0486 
+  );
+opacity: 1;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 10px);
+  height:  calc(100% + 10px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+a:hover::before {
+  opacity: 1;
+}
+
+a:active:after {
+  background: transparent;
+}
+
+a:active {
+  color: #000;
+  font-weight: bold;
+}
+
+
+
+a:nth-child(1) {
+  color: #0866ff;
+
+}
+a:nth-child(2), :nth-child(4){
+  color: #000;
+} 
+a:nth-child(3) {
+  color: #25d366;
+} 
+
+
+.backImg {
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+.backImg img {
+  animation-delay: 2s;
+  height: 100%;
+  position: absolute;
+  width: 50%;
+}
+.backImg #backImg1 {
+  animation: moveLeft 3s 1 linear;
+  left: -100%;
+}
+.backImg #backImg2 {
+  animation: moveRight 3s 1 linear;
+  right: -100%;
+}
+
+@keyframes moveLeft {
+  0% {
+    left: 0;
+  }
+  25% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+@keyframes moveRight {
+  0% {
+    right: 0;
+  }
+  25% {
+    right: 0;
+  }
+  100% {
+    right: -100%;
+  }
+}
+@keyframes container {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 667px) {
+  .backImg #backImg1 {
+    top: -100%;
+    width: 100%;
+    height: 50%;
+    
+  }
+  .backImg #backImg2 {
+    bottom: -100%;
+    width: 100%;
+    height: 50%;
+  }
+
+
+@keyframes moveLeft {
+  0% {
+    top:  0;
+    left: 0;
+  }
+  25% {
+    left: 0;
+    top: 0;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes moveRight {
+  0% {
+    bottom:  0;
+    left: 0;
+  }
+  25% {
+    left: 0;
+    bottom: 0;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes container {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+}
